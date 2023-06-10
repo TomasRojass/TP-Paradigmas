@@ -89,7 +89,7 @@ public class Archivo {
 				ArrayList<Atraccion> atraccionesEnPromocion = new ArrayList<Atraccion>();
 				boolean encontrada = false;
 				
-				for (int i = primeraAtraccion; i < cantidadDeAtracciones; i++) {
+				for (int i = primeraAtraccion; i < primeraAtraccion+cantidadDeAtracciones; i++) {
 					for (Atraccion atraccion : listaDeAtracciones) {
 						if (atraccion.getNombre().equals(atributos[i])) {
 			                atraccionesEnPromocion.add(atraccion);
@@ -98,17 +98,19 @@ public class Archivo {
 				}
 				switch (atributos[0]) {
 				case "a": {
-					PromocionAbsoluta promo = new PromocionAbsoluta(atributos[1],atributos[2],atraccionesEnPromocion,Double.parseDouble(atributos[2+cantidadDeAtracciones]));
+					PromocionAbsoluta promo = new PromocionAbsoluta(atributos[1],atributos[2],atraccionesEnPromocion,Double.parseDouble(atributos[4+cantidadDeAtracciones]));
 					promocion.add(promo);
+					break;
 				}
 				case "p":{
 					PromocionPorcentual promo = new PromocionPorcentual(atributos[1], atributos[2], atraccionesEnPromocion,Integer.parseInt(atributos[2+cantidadDeAtracciones]));
 					promocion.add(promo);
+					break;
 				}
 				case "x":{
 					ArrayList<Atraccion> atraccionesGratis = new ArrayList<Atraccion>();
 					int cantAtraccionesGratis = Integer.parseInt(atributos[2+cantidadDeAtracciones]);
-					for (int i = 3+cantidadDeAtracciones; i < cantAtraccionesGratis; i++) {
+					for (int i = 3+cantidadDeAtracciones; i < 2+cantidadDeAtracciones+cantAtraccionesGratis; i++) {
 						for (Atraccion atraccion : listaDeAtracciones) {
 							if (atraccion.getNombre().equals(atributos[i])) {
 								atraccionesGratis.add(atraccion);
@@ -116,6 +118,8 @@ public class Archivo {
 						}
 					}
 					PromocionAxB promo = new PromocionAxB(atributos[1], atributos[2], atraccionesEnPromocion, atraccionesGratis);
+					promocion.add(promo);
+					break;
 				}
 				default:
 					throw new IllegalArgumentException("Unexpected value ");
