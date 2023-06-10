@@ -1,16 +1,22 @@
 package usuario;
 
+import java.util.ArrayList;
+
+import ofertador.Ofertable;
+
 public class Usuario {
 	private String nombre;
 	private double presupuesto;
 	private double tiempoDisponible;
 	private String preferencia;
+	private ArrayList<Ofertable> ofertablesElegidos;
 
 	public Usuario(String nombre, double presupuesto, double tiempoDisponible, String preferencia) {
 		this.nombre = nombre;
 		this.presupuesto = presupuesto;
 		this.tiempoDisponible = tiempoDisponible;
 		this.preferencia = preferencia;
+		this.ofertablesElegidos = new ArrayList<Ofertable>();
 	}
 
 	public String getNombre() {
@@ -40,5 +46,12 @@ public class Usuario {
 		tiempoDisponible -= tiempo;
 		return tiempoDisponible;
 	}
+
+	public ArrayList<Ofertable> getOfertablesElegidos() {
+		return ofertablesElegidos;
+	}
 	
+	public void elegir(Ofertable ofertable) {
+		ofertablesElegidos.add(ofertable);
+	}
 }

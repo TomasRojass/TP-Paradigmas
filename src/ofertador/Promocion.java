@@ -47,4 +47,11 @@ public abstract class Promocion extends Ofertable {
 		return true;
 	}
 
+	@Override
+	public ArrayList<Atraccion> getAtracciones() {
+		return this.atracciones;
+	}
+	
+	
+
 }
