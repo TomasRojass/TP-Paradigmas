@@ -37,4 +37,9 @@ public class Atraccion extends Ofertable {
 		return true;
 	}
 
+	@Override
+	public int obtenerTipoOfertable() {
+		return TipoOfertable.ATRACCION.ordinal();
+	}
+
 }

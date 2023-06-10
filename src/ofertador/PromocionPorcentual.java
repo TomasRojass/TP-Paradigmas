@@ -14,5 +14,10 @@ public class PromocionPorcentual extends Promocion {
 	public double getPrecio() {
 		return super.getPrecio()*(100-descuento)/100;
 	}
+	
+	@Override
+	public int obtenerTipoOfertable() {
+		return TipoOfertable.PROMOCION.ordinal();
+	}
 
 }

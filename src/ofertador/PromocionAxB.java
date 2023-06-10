@@ -20,5 +20,10 @@ public class PromocionAxB extends Promocion {
 		}
 		return super.getPrecio() - descuento;
 	}
+	
+	@Override
+	public int obtenerTipoOfertable() {
+		return TipoOfertable.PROMOCION.ordinal();
+	}
 
 }

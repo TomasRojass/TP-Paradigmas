@@ -15,5 +15,10 @@ public class PromocionAbsoluta extends Promocion {
 	public double getPrecio() {
 		return monto;
 	}
+	
+	@Override
+	public int obtenerTipoOfertable() {
+		return TipoOfertable.PROMOCION.ordinal();
+	}
 
 }
