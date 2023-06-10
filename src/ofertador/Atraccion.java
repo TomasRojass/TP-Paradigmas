@@ -1,5 +1,7 @@
 package ofertador;
 
+import java.util.ArrayList;
+
 public class Atraccion extends Ofertable {
 
 	private double precio;
@@ -37,4 +39,18 @@ public class Atraccion extends Ofertable {
 		return true;
 	}
 
+	public boolean equals(Atraccion atraccion) {
+		return this.nombre == atraccion.nombre;
+	}
+
+	@Override
+	public ArrayList<Atraccion> getAtracciones() {
+		ArrayList<Atraccion> atracciones = new ArrayList<Atraccion>();
+		atracciones.add(this);
+		return atracciones;
+	}
+
+
+
+	
 }
