@@ -103,14 +103,15 @@ public class Archivo {
 					break;
 				}
 				case "p":{
-					PromocionPorcentual promo = new PromocionPorcentual(atributos[1], atributos[2], atraccionesEnPromocion,Integer.parseInt(atributos[2+cantidadDeAtracciones]));
+					PromocionPorcentual promo = new PromocionPorcentual(atributos[1], atributos[2], atraccionesEnPromocion,Integer.parseInt(atributos[4+cantidadDeAtracciones]));
 					promocion.add(promo);
 					break;
 				}
 				case "x":{
 					ArrayList<Atraccion> atraccionesGratis = new ArrayList<Atraccion>();
 					int cantAtraccionesGratis = Integer.parseInt(atributos[2+cantidadDeAtracciones]);
-					for (int i = 3+cantidadDeAtracciones; i < 2+cantidadDeAtracciones+cantAtraccionesGratis; i++) {
+					int primeraAtraccionGratis = primeraAtraccion+cantidadDeAtracciones+1;
+					for (int i = primeraAtraccionGratis; i < primeraAtraccionGratis+cantAtraccionesGratis; i++) {
 						for (Atraccion atraccion : listaDeAtracciones) {
 							if (atraccion.getNombre().equals(atributos[i])) {
 								atraccionesGratis.add(atraccion);
