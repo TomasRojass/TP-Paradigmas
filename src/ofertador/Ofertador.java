@@ -15,7 +15,7 @@ public class Ofertador {
 
 	public boolean ofertar(Ofertable ofertable){
 		System.out.println(ofertable);
-		System.out.println("Desea aceptar esta oferta?");
+		System.out.println("Desea aceptar esta oferta? Ingrese S o N");
 		Scanner reader = new Scanner(System.in);
 		Character c = reader.next().charAt(0);
 		while(!c.equals('S') && !c.equals('N')) {
