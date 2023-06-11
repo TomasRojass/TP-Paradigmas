@@ -19,10 +19,10 @@ public class OfertableComparator implements Comparator<Ofertable> {
 		if(!o1.getTipo().equals(preferencia) && o2.getTipo().equals(preferencia)) {
 			return 1;
 		}
-		if(o1 instanceof Promocion && o2 instanceof Atraccion) {
+		if(o1.getTipoOfertable() == TipoOfertable.PROMOCION && o2.getTipoOfertable() == TipoOfertable.ATRACCION) {
 			return -1;
 		}
-		if(o1 instanceof Atraccion && o2 instanceof Promocion) {
+		if(o1.getTipoOfertable() == TipoOfertable.ATRACCION && o2.getTipoOfertable() == TipoOfertable.PROMOCION) {
 			return 1;
 		}
 		if(o1.getPrecio() > o2.getPrecio()) {
