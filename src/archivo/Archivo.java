@@ -135,7 +135,7 @@ public class Archivo {
 		return promocion;
 	}
 
-	public void guardarVisitas(String nombre, Usuario usuario, LinkedList<Ofertable> listaDeCompras) {
+	public void guardarVisitas(String nombre, Usuario usuario) {
 		FileWriter file = null;
 		PrintWriter printerWriter = null;
 		int nro = 0;
@@ -145,12 +145,16 @@ public class Archivo {
 			file = new FileWriter(path+"/" + nombre + ".out");
 			printerWriter = new PrintWriter(file);
 			printerWriter.println("---Resumen compra del usuario: " + usuario.getNombre() + "---");
-			printerWriter.println("Preferencias del usuario: " + usuario.getPreferencia());
-			for (Ofertable ofertable : listaDeCompras) {
-				printerWriter.println((nro + 1) + "-" + "Nombre: " + ofertable.getNombre());
-				totalTiempo += ofertable.getPrecio();
-				totalPagar += ofertable.getTiempo();
+			printerWriter.println(usuario);
+			printerWriter.println("\n-----------------\n");
+			printerWriter.println("Atracciones Elegidas:\n");
+			for (Ofertable ofertable : usuario.getOfertablesElegidos()) {
+				nro++;
+				printerWriter.println((nro) + "-" + ofertable);
+				totalTiempo += ofertable.getTiempo();
+				totalPagar += ofertable.getPrecio();
 			}
+			printerWriter.println("-----------------\n");
 			printerWriter.println("Total a pagar:" + totalPagar);
 			printerWriter.println("Total de tiempo:" + totalTiempo);
 			

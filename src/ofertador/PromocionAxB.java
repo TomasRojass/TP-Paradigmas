@@ -18,7 +18,7 @@ public class PromocionAxB extends Promocion {
 		for (Atraccion atraccion : atraccionesGratis) {
 			descuento += atraccion.getPrecio();
 		}
-		return super.getPrecio() - descuento;
+		return getPrecioOriginal() - descuento;
 	}
 
 }
