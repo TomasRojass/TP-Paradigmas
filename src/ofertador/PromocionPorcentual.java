@@ -12,7 +12,7 @@ public class PromocionPorcentual extends Promocion {
 
 	@Override
 	public double getPrecio() {
-		return super.getPrecio()*(100-descuento)/100;
+		return getPrecioOriginal()*(100-descuento)/100;
 	}
 
 }

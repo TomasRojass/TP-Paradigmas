@@ -50,7 +50,16 @@ public class Atraccion extends Ofertable {
 		return atracciones;
 	}
 
+	@Override
+	public String toString() {
+		return "Atraccion \n"
+				+ "Nombre: " + nombre + "\n"
+				+ "Tipo: " + tipo + "\n"
+				+ "Precio: " + precio + "\n"
+				+ "Tiempo: " + tiempo + "\n";
+	}
 
+	
 
 	
 }

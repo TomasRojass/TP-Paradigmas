@@ -1,6 +1,7 @@
 package ofertador;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import usuario.Usuario;
 
@@ -12,14 +13,19 @@ public class Ofertador {
 		this.ofertables = ofertables;
 	}
 
-	public ArrayList<Ofertable> ofertar(Usuario usuario){
-//		ArrayList<Ofertable> visits = new ArrayList<Ofertable>();
-		
-		return ofertables;
+	public boolean ofertar(Ofertable ofertable){
+		System.out.println(ofertable);
+		System.out.println("Desea aceptar esta oferta?");
+		Scanner reader = new Scanner(System.in);
+		Character c = reader.next().charAt(0);
+		while(!c.equals('S') && !c.equals('N')) {
+			c = reader.next().charAt(0);
+		}
+		return c.equals('S');
 	}
 	
-	public void ordenar(Usuario usuario){
-		ofertables.sort(new OfertableComparator(usuario.getPreferencia()));
+	public void ordenarPorUsuario(Usuario usuario) {
+		ofertables.sort(new OfertableComparator(usuario.getPreferencia()));		
 	}
 	
 	public OfertableIterator getIterator(Usuario usuario, ArrayList<Ofertable> ofertables) {

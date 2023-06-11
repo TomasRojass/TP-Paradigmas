@@ -19,6 +19,7 @@ public class OfertableIterator implements Iterator<Ofertable> {
 
 	@Override
 	public boolean hasNext() {
+		currentPosition = getValidPosition(currentPosition);
 		return currentPosition < ofertables.size();
 	}
 

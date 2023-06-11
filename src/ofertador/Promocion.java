@@ -20,8 +20,7 @@ public abstract class Promocion extends Ofertable {
 		return anyLleno;
 	}
 
-	@Override
-	public double getPrecio() {
+	public double getPrecioOriginal() {
 		double total = 0;
 		for (Atraccion atraccion : atracciones) {
 			total += atraccion.getPrecio();
@@ -51,6 +50,22 @@ public abstract class Promocion extends Ofertable {
 	public ArrayList<Atraccion> getAtracciones() {
 		return this.atracciones;
 	}
+
+	@Override
+	public String toString() {
+		String nombres = "";
+		for (Atraccion atraccion : atracciones) {
+			nombres += atraccion.getNombre() + ", ";
+		}
+		return "Promocion \n"
+				+"Nombre: " + nombre + "\n"
+				+"Tipo: " + tipo + "\n"
+				+"Atraciones incluidas: " + nombres + "\n"
+				+"Tiempo:" + getTiempo() + "\n"
+				+"Precio original:" + getPrecioOriginal() + "\n"
+				+"Precio con descuento:" + getPrecio() + "\n";
+	}
+	
 	
 	
 

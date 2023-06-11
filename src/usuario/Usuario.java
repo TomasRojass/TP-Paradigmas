@@ -52,6 +52,18 @@ public class Usuario {
 	}
 	
 	public void elegir(Ofertable ofertable) {
+		consumirPresupuesto(ofertable.getPrecio());
+		consumirTiempo(ofertable.getTiempo());
 		ofertablesElegidos.add(ofertable);
 	}
+
+	@Override
+	public String toString() {
+		return "Nombre: " + nombre + "\n"
+				+ "Presupuesto: " + presupuesto + "\n"
+				+ "TiempoDisponible: " + tiempoDisponible + "\n"
+				+ "Preferencia: " + preferencia;
+	}
+	
+	
 }
