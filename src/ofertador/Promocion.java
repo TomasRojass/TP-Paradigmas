@@ -65,8 +65,9 @@ public abstract class Promocion extends Ofertable {
 				+"Precio original:" + getPrecioOriginal() + "\n"
 				+"Precio con descuento:" + getPrecio() + "\n";
 	}
-	
-	
-	
 
+	@Override
+	public TipoOfertable getTipoOfertable() {
+		return TipoOfertable.PROMOCION;
+	}
 }

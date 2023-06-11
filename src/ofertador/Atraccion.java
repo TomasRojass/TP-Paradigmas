@@ -59,7 +59,8 @@ public class Atraccion extends Ofertable {
 				+ "Tiempo: " + tiempo + "\n";
 	}
 
-	
-
-	
+	@Override
+	public TipoOfertable getTipoOfertable() {
+		return TipoOfertable.ATRACCION;
+	}
 }

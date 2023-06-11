@@ -39,4 +39,6 @@ public abstract class Ofertable {
 		}
 		return false;
 	}
+	
+	public abstract TipoOfertable getTipoOfertable();
 }
