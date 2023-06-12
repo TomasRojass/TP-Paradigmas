@@ -66,16 +66,6 @@ public class PromocionTest {
 
     }
 
-/*     @Test
-    public void testPromocionAbsolutaIsLleno() {
-        ArrayList<Atraccion> atracciones = new ArrayList<>();
-        atracciones.add(new Atraccion("Bosque Negro", "Aventura", 10, 2, 1));
-        atracciones.add(new Atraccion("Mordor", "Aventura", 15, 3, 1));
-
-        PromocionAbsoluta promocion = new PromocionAbsoluta("Pack Aventura", "Aventura", atracciones, 25);
-
-        Assert.assertTrue(promocion.isLleno());
-    } */
 
     @Test
     public void testPromocionAbsolutaTomarCupo() {
@@ -125,19 +115,7 @@ public class PromocionTest {
         Assert.assertNotNull(promocion);
     }
 
-/*     @Test
-    public void testPromocionAxBIsLleno() {
-        ArrayList<Atraccion> atracciones = new ArrayList<>();
-        atracciones.add(new Atraccion("Bosque Negro", "Aventura", 10, 2, 6));
-        atracciones.add(new Atraccion("Mordor", "Aventura", 15, 3, 4));
 
-        ArrayList<Atraccion> atraccionesGratis = new ArrayList<>();
-        atraccionesGratis.add(new Atraccion("Rivendel", "Aventura", 0, 1, 1));
-
-        PromocionAxB promocion = new PromocionAxB("Pack Aventura", "Aventura", atracciones, atraccionesGratis);
-
-        Assert.assertTrue(promocion.isLleno());
-    } */
 
     @Test
     public void testPromocionAxBTomarCupo() {
