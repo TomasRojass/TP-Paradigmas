@@ -67,7 +67,7 @@ public abstract class Promocion extends Ofertable {
 	}
 
 	@Override
-	public TipoOfertable getTipoOfertable() {
-		return TipoOfertable.PROMOCION;
+	public int obtenerTipoOfertable() {
+		return TipoOfertable.PROMOCION.ordinal();
 	}
 }

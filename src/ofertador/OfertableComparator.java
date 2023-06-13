@@ -13,25 +13,37 @@ public class OfertableComparator implements Comparator<Ofertable> {
 
 	@Override
 	public int compare(Ofertable o1, Ofertable o2) {
-		if(o1.getTipo().equals(preferencia) && !o2.getTipo().equals(preferencia)) {
+		if (o1.getTipo().equals(preferencia) && o2.getTipo().equals(preferencia))
+			return compararTipo(o1, o2);
+		else if (o1.getTipo().equals(preferencia))
 			return -1;
-		}
-		if(!o1.getTipo().equals(preferencia) && o2.getTipo().equals(preferencia)) {
+		else
 			return 1;
-		}
-		if(o1.getTipoOfertable() == TipoOfertable.PROMOCION && o2.getTipoOfertable() == TipoOfertable.ATRACCION) {
-			return -1;
-		}
-		if(o1.getTipoOfertable() == TipoOfertable.ATRACCION && o2.getTipoOfertable() == TipoOfertable.PROMOCION) {
-			return 1;
-		}
-		if(o1.getPrecio() > o2.getPrecio()) {
-			return -1;
-		}
-		if(o1.getPrecio() < o2.getPrecio()) {
-			return 1;
-		}
-		return (int) (o2.getTiempo() - o1.getTiempo());
 	}
 
+	public int compararTipo(Ofertable o1, Ofertable o2) {
+		if( o1.compareTo(o2) >= 1 )
+			return 1;
+		if( o1.compareTo(o2) <= -1 )
+			return -1;
+		return compararPrecio(o1, o2);	
+	}
+	
+	public int compararPrecio(Ofertable o1, Ofertable o2) {
+		if( o1.getPrecio() > o2.getPrecio() )
+			return -1;
+		else if ( o1.getPrecio() < o2.getPrecio() )
+			return 1;
+		else
+			return compararTiempo(o1, o2);
+	}
+	
+	public int compararTiempo(Ofertable o1, Ofertable o2) {
+		if( o1.getTiempo() > o2.getTiempo() )
+			return -1;
+		else if ( o1.getTiempo() < o2.getTiempo() )
+			return 1;
+		else
+			return 0;
+	}
 }

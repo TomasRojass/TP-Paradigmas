@@ -60,7 +60,7 @@ public class Atraccion extends Ofertable {
 	}
 
 	@Override
-	public TipoOfertable getTipoOfertable() {
-		return TipoOfertable.ATRACCION;
+	public int obtenerTipoOfertable() {
+		return TipoOfertable.ATRACCION.ordinal();
 	}
 }
