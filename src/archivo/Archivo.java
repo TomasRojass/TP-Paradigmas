@@ -1,13 +1,11 @@
 package archivo;
 
-import java.io.BufferedWriter;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -74,7 +72,6 @@ public class Archivo {
 	
 	public ArrayList<Promocion> leerPromociones(String nombre, ArrayList<Atraccion> listaDeAtracciones) {
 		Scanner scanner = null;
-		String tipoPromocion;
 		ArrayList<Promocion> promocion = new ArrayList<Promocion>();
 		
 		try {
@@ -87,7 +84,6 @@ public class Archivo {
 				int cantidadDeAtracciones = Integer.parseInt(atributos[3]);
 				int primeraAtraccion = 4;
 				ArrayList<Atraccion> atraccionesEnPromocion = new ArrayList<Atraccion>();
-				boolean encontrada = false;
 				
 				for (int i = primeraAtraccion; i < primeraAtraccion+cantidadDeAtracciones; i++) {
 					for (Atraccion atraccion : listaDeAtracciones) {

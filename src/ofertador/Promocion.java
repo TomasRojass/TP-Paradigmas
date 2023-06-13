@@ -42,7 +42,7 @@ public abstract class Promocion extends Ofertable {
 		for (Atraccion atraccion : atracciones) {
 			atraccion.tomarCupo();
 		}
-		// TODO: ver la logica para cuando uno esta lleno y no se puede tomar
+
 		return true;
 	}
 

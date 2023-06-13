@@ -36,13 +36,11 @@ public class Usuario {
 	}
 	
 	public double consumirPresupuesto(double monto) {
-		//TODO: validar que el presupuesto no baje de cero. Ver que hacer cuando el monto es mayor
 		presupuesto -= monto;
 		return presupuesto;
 	}
 	
 	public double consumirTiempo(double tiempo) {
-		//TODO: validar que el tiempo disponible no baje de cero. Ver que hacer cuando el tiempo es mayor
 		tiempoDisponible -= tiempo;
 		return tiempoDisponible;
 	}
