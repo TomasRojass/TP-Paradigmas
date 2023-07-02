@@ -13,4 +13,4 @@ Promociones:
 - Promocion AxB: x;nombre;tipo;atracciones(a;b;c...);atraccionesGratis(a;b;c...)
 
 # Diagrama de clases
-![Diagrama sin título](https://github.com/TomasRojass/TP-Paradigmas/assets/75493758/1272450d-9d69-473d-b954-31bc853db10d)
+![diagrama](https://github.com/TomasRojass/TP-Paradigmas/assets/79986260/9644fca2-7ef6-40c6-b3c8-2e89cefac935)
