@@ -19,6 +19,9 @@ import usuario.Usuario;
 
 public class Archivo {
 	private String path;
+	private ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+	private ArrayList<Atraccion> atracciones = new ArrayList<Atraccion>();
+	private ArrayList<Promocion> promocion = new ArrayList<Promocion>();
 
 	public Archivo(String path) {
 		this.path = path;
@@ -26,7 +29,6 @@ public class Archivo {
 
 	public ArrayList<Usuario> leerUsuarios(String nombre) {
 		Scanner scanner = null;
-		ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
 
 		try {
 			File file = new File(path + nombre);
@@ -49,8 +51,6 @@ public class Archivo {
 
 	public ArrayList<Atraccion> leerAtracciones(String nombre) {
 		Scanner scanner = null;
-		ArrayList<Atraccion> atracciones = new ArrayList<Atraccion>();
-
 		try {
 			File file = new File(path + nombre);
 			scanner = new Scanner(file);
@@ -70,15 +70,15 @@ public class Archivo {
 		return atracciones;
 	}
 	
-	public ArrayList<Promocion> leerPromociones(String nombre, ArrayList<Atraccion> listaDeAtracciones) {
+	public ArrayList<Promocion> leerPromociones(String nombre) {
 		Scanner scanner = null;
-		ArrayList<Promocion> promocion = new ArrayList<Promocion>();
-		
 		try {
 			File file = new File(path + nombre);
+			if(atracciones.size() == 0) {
+				throw new RuntimeException("Sin atracciones");
+			}
 			scanner = new Scanner(file);
 			scanner.useLocale(Locale.ENGLISH);
-			
 			while (scanner.hasNextLine()) {
 				String[] atributos = scanner.nextLine().split(";");
 				int cantidadDeAtracciones = Integer.parseInt(atributos[3]);
@@ -86,7 +86,7 @@ public class Archivo {
 				ArrayList<Atraccion> atraccionesEnPromocion = new ArrayList<Atraccion>();
 				
 				for (int i = primeraAtraccion; i < primeraAtraccion+cantidadDeAtracciones; i++) {
-					for (Atraccion atraccion : listaDeAtracciones) {
+					for (Atraccion atraccion : atracciones) {
 						if (atraccion.getNombre().equals(atributos[i])) {
 			                atraccionesEnPromocion.add(atraccion);
 			            }
@@ -94,12 +94,12 @@ public class Archivo {
 				}
 				switch (atributos[0]) {
 				case "a": {
-					PromocionAbsoluta promo = new PromocionAbsoluta(atributos[1],atributos[2],atraccionesEnPromocion,Double.parseDouble(atributos[4+cantidadDeAtracciones]));
+					PromocionAbsoluta promo = new PromocionAbsoluta(atributos[1],atributos[2],atraccionesEnPromocion,Double.parseDouble(atributos[primeraAtraccion+cantidadDeAtracciones]));
 					promocion.add(promo);
 					break;
 				}
 				case "p":{
-					PromocionPorcentual promo = new PromocionPorcentual(atributos[1], atributos[2], atraccionesEnPromocion,Integer.parseInt(atributos[4+cantidadDeAtracciones]));
+					PromocionPorcentual promo = new PromocionPorcentual(atributos[1], atributos[2], atraccionesEnPromocion,Integer.parseInt(atributos[primeraAtraccion+cantidadDeAtracciones]));
 					promocion.add(promo);
 					break;
 				}
@@ -108,7 +108,7 @@ public class Archivo {
 					int cantAtraccionesGratis = Integer.parseInt(atributos[2+cantidadDeAtracciones]);
 					int primeraAtraccionGratis = primeraAtraccion+cantidadDeAtracciones+1;
 					for (int i = primeraAtraccionGratis; i < primeraAtraccionGratis+cantAtraccionesGratis; i++) {
-						for (Atraccion atraccion : listaDeAtracciones) {
+						for (Atraccion atraccion : atracciones) {
 							if (atraccion.getNombre().equals(atributos[i])) {
 								atraccionesGratis.add(atraccion);
 				            }
@@ -119,7 +119,7 @@ public class Archivo {
 					break;
 				}
 				default:
-					throw new IllegalArgumentException("Unexpected value ");
+					throw new IllegalArgumentException("Valor incorrecto");
 				}
 				
 			}

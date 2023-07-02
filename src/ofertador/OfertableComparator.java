@@ -21,7 +21,7 @@ public class OfertableComparator implements Comparator<Ofertable> {
 			return 1;
 	}
 
-	public int compararTipo(Ofertable o1, Ofertable o2) {
+	private int compararTipo(Ofertable o1, Ofertable o2) {
 		if( o1.compareTo(o2) >= 1 )
 			return 1;
 		if( o1.compareTo(o2) <= -1 )
@@ -29,7 +29,7 @@ public class OfertableComparator implements Comparator<Ofertable> {
 		return compararPrecio(o1, o2);	
 	}
 	
-	public int compararPrecio(Ofertable o1, Ofertable o2) {
+	private int compararPrecio(Ofertable o1, Ofertable o2) {
 		if( o1.getPrecio() > o2.getPrecio() )
 			return -1;
 		else if ( o1.getPrecio() < o2.getPrecio() )
@@ -38,7 +38,7 @@ public class OfertableComparator implements Comparator<Ofertable> {
 			return compararTiempo(o1, o2);
 	}
 	
-	public int compararTiempo(Ofertable o1, Ofertable o2) {
+	private int compararTiempo(Ofertable o1, Ofertable o2) {
 		if( o1.getTiempo() > o2.getTiempo() )
 			return -1;
 		else if ( o1.getTiempo() < o2.getTiempo() )
