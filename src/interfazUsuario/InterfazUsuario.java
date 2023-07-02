@@ -22,7 +22,7 @@ public class InterfazUsuario {
 	public void comenzarOfertas(String usuariosFile, String atraccionesFile, String promocionesFile) {
 		ArrayList<Usuario> usuarios = archivo.leerUsuarios(usuariosFile);
 		ArrayList<Atraccion> atracciones = archivo.leerAtracciones(atraccionesFile);
-		ArrayList<Promocion> promociones = archivo.leerPromociones(promocionesFile, atracciones);
+		ArrayList<Promocion> promociones = archivo.leerPromociones(promocionesFile);
 		ArrayList<Ofertable> ofertables = new ArrayList<Ofertable>();
 		ofertables.addAll(atracciones);
 		ofertables.addAll(promociones);
